@@ -1,0 +1,328 @@
+/* src/styles/ResultsDisplay.css */
+
+/* 1) Ocean Breeze Theme Variables */
+:root {
+  --primary-color: #2FA4FF;            /* Bright Sky Blue */
+  --primary-dark: #1C7ED6;             /* Deep Ocean Blue */
+  --primary-light: #8ED1FC;            /* Soft Sky Tint */
+  --primary-gradient: linear-gradient(135deg, #1C7ED6 0%, #2FA4FF 100%);
+  --secondary-color: #63E6BE;          /* Minty Teal */
+  --accent-color: #FFB3A7;             /* Coral Blush */
+  --success-color: #38D9A9;            /* Fresh Green */
+  --warning-color: #FCC419;            /* Warm Yellow */
+  --error-color: #F03E3E;              /* Vivid Red */
+
+  --text-primary: #263238;             /* Dark Slate */
+  --text-secondary: #52606D;           /* Muted Slate */
+  --text-light: #FFFFFF;               /* White */
+
+  --bg-primary: #F4F9FF;               /* Pale Sky */
+  --bg-secondary: rgba(255,255,255,0.6); /* Glassmorphic Card Base */
+  --bg-tertiary: #E3F8FF;              /* Very Light Aqua */
+
+  --border-color: rgba(255,255,255,0.3);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 16px 32px rgba(0,0,0,0.1);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* 2) Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 3) Body & Base */
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4) Layout Helpers */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* 5) Header */
+.header {
+  background: var(--primary-gradient);  /* use the bright sky-to-deep ocean gradient */
+  color: var(--text-light);             /* white text for contrast */
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.header h1 {
+  /* now a solid white heading, since the bg is already a gradient */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--text-light);
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.9);         /* light text with a bit of opacity */
+  margin-top: var(--spacing-sm);
+}
+
+/* 6) Main Content */
+.main-content {
+  flex: 1;
+  padding: var(--spacing-xl) 0;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+.dashboard-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xl);
+}
+.dashboard-intro h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+.dashboard-intro p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* 7) Glassmorphic Cards */
+.card {
+  background-color: var(--bg-secondary);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 8) Card Header & Body */
+.card-header {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+  padding: var(--spacing-lg);
+}
+.card-header h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-bottom: var(--spacing-xs);
+}
+.header-icon {
+  margin-right: var(--spacing-sm);
+}
+.card-header p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+.card-body {
+  padding: var(--spacing-lg);
+}
+
+/* 9) Tables & Rows */
+/* Tables: gradient header + glassy rows */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-secondary);    /* glassmorphic base */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Header row */
+.data-table thead th {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+/* Body cells */
+.data-table tbody td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Zebra/alternating row tint bumped up */
+.data-table tbody tr:nth-child(even) {
+  background: rgba(255,255,255,0.4);
+}
+.data-table tbody tr:nth-child(odd) {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Hover state */
+.data-table tbody tr:hover {
+  background: rgba(47, 164, 255, 0.3);
+}
+/* 10) Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: var(--radius-lg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--primary-gradient);
+  color: var(--text-light);
+  box-shadow: var(--shadow-sm);
+}
+.btn-accent {
+  background: var(--accent-color);
+  color: var(--text-light);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 11) Alerts */
+.alert {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-lg);
+}
+.alert-icon {
+  margin-right: var(--spacing-sm);
+  flex-shrink: 0;
+}
+.alert-error {
+  background-color: rgba(240, 62, 62, 0.1);
+  color: var(--error-color);
+  border-left: 4px solid var(--error-color);
+}
+.alert-info {
+  background-color: rgba(47, 164, 255, 0.1);
+  color: var(--primary-color);
+  border-left: 4px solid var(--primary-color);
+}
+
+/* 12) Footer */
+.footer {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-xxl);
+}
+.footer h1 {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin-top: var(--spacing-md);
+}
+.footer-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+}
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+.footer-links a:hover::after {
+  width: 100%;
+}
+.copyright {
+  opacity: 0.6;
+  font-size: 0.9rem;
+  margin-top: var(--spacing-sm);
+}
+
+/* 13) Responsive & Utility */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  .dashboard-intro h2 {
+    font-size: 1.5rem;
+  }
+  .footer-links {
+    flex-direction: column;
+  }
+}
+
+/* 14) Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+  }
+}

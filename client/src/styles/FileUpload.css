@@ -1,0 +1,132 @@
+.upload-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.file-drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  width: 100%;
+  min-height: 200px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+.file-drop-zone:hover {
+  border-color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+.upload-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.upload-icon {
+  font-size: 28px;
+  color: var(--primary-color);
+}
+
+.upload-text {
+  text-align: center;
+}
+
+.upload-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+}
+
+.upload-subtitle {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.selected-file {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--primary-light);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--primary-color);
+}
+
+.file-icon {
+  color: var(--primary-color);
+  font-size: 20px;
+  margin-right: var(--spacing-md);
+}
+
+.file-name {
+  font-weight: 500;
+  margin-right: var(--spacing-md);
+  flex-grow: 1;
+}
+
+.file-size {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.progress-container {
+  margin-bottom: var(--spacing-lg);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.9rem;
+}
+
+.progress-bar-container {
+  height: 8px;
+  background-color: var(--bg-tertiary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.btn {
+  width: 100%;
+}

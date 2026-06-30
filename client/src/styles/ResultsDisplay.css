@@ -1,0 +1,128 @@
+.results-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.parameter-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.group-title {
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.data-table th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+  text-align: left;
+  padding: var(--spacing-md);
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.data-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.even-row {
+  background-color: var(--bg-primary);
+}
+
+.odd-row {
+  background-color: var(--bg-secondary);
+}
+
+.value-cell {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.action-container {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-lg);
+}
+
+.predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.condition-card {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--accent-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.condition-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.condition-icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  margin-right: var(--spacing-md);
+}
+
+.condition-details {
+  flex-grow: 1;
+}
+
+.condition-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.condition-info {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.disclaimer {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background-color: #fff8e1;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--warning-color);
+  font-size: 0.9rem;
+  color: #856404;
+}
+
+@media (max-width: 768px) {
+  .predictions-grid {
+    grid-template-columns: 1fr;
+  }
+}
